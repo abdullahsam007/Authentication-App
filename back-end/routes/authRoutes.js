@@ -3,12 +3,12 @@ const router = express.Router();
 const cors = require('cors');
 const { test, registerUser, loginUser, getProfile} = require('../controllers/authController')
 
-// middleware hai
+// middleware hai for CORS
 
 router.use(
     cors({
         credentials: true,
-        origin: 'http://localhost:3000'
+        origin: 'http://localhost:3000' //update with your Front-end URL
     })
 )
 

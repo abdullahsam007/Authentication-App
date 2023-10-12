@@ -1,5 +1,5 @@
 const User = require('../models/user');
-const {hashPassword, comparePassword} = require('../hash/auth');
+const { hashPassword, comparePasswords } = require('../hash/auth');
 const async = require('hbr/lib/async');
 const jwt = require('jsonwebtoken');
 
@@ -54,7 +54,7 @@ const loginUser = async (req,res) => {
 
     try {
         const {email, password} = req.body;
-
+        console.log(email, password);
         // check agar user exists
         const user = await User.findOne({email});
         if (!user) {
@@ -65,7 +65,10 @@ const loginUser = async (req,res) => {
         }
 
         // check password if match
-        const match = await comparePassword(password, user.password)
+        const match = await comparePasswords(password, user.password)
+        console.log(match,user, 'True');
+        return res.json({ user });
+
         if(match){
 
             jwt.sign({email: user.email, id: user._id, name: user.name}, process.env.JWT_SECRET,{},(err,token) =>{
@@ -76,7 +79,7 @@ const loginUser = async (req,res) => {
         }
         if(!match) {
             res.json({
-                error: "Passwords do not match"
+                error: "Password doesnt not match"
             })
         }
     } catch (error) {

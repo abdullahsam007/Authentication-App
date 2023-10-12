@@ -1,0 +1,38 @@
+/* Add this CSS to your Navbar.css file */
+nav {
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+  
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;  
+    overflow: hidden; 
+  }
+  
+  
+  .content {
+    margin-top: 40px; 
+    padding: 20px;
+    
+  }
+  

@@ -50,7 +50,39 @@ const registerUser = async(req,res) => {
 
 // login endpoint
 
-const loginUser = async (req,res) => {
+const loginUser = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        console.log(email, password);
+        // Check if user exists
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.json({
+                error: 'No user found',
+            });
+        }
+
+        // Check if the password matches
+        const match = await comparePasswords(password, user.password);
+        console.log(match, user, 'True');
+        
+        if (match) {
+            jwt.sign({ email: user.email, id: user._id, name: user.name }, process.env.JWT_SECRET, {}, (err, token) => {
+                if (err) throw err;
+                res.cookie('token', token).json({ token }); // Send the token back to the client
+            });
+        } else {
+            res.json({
+                error: "Password does not match",
+            });
+        }
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+
+/*const loginUser = async (req,res) => {
 
     try {
         const {email, password} = req.body;
@@ -90,7 +122,7 @@ const loginUser = async (req,res) => {
 
 
 
-}
+}*/
 
 const getProfile = (req,res) =>{
 

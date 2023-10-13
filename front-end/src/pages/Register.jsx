@@ -1,45 +1,43 @@
-import { useState } from "react"
-import axios from 'axios'
-import { toast } from 'react-hot-toast'
-import { useNavigate } from "react-router-dom"
-import '../styles/register.css'
+import { useState, useContext } from "react";
+import axios from 'axios';
+import { toast } from 'react-hot-toast';
+import { useNavigate } from "react-router-dom";
+import { UserContext } from '../context/userContext'; // Update the import path
 
 const Register = () => {
+  const navigate = useNavigate();
+  const { setUser } = useContext(UserContext); // Use the setUser function from UserContext
 
-  const navigate = useNavigate()
   const [data, setData] = useState({
     name: '',
     email: '',
     password: '',
-  })
-
+  });
 
   const registerUser = async (e) => {
-
     e.preventDefault();
-    const {name, email, password} = data
+    const { name, email, password } = data;
 
     try {
-
-      const {data} = await axios.post('/register', {
+      const { data } = await axios.post('/register', {
         name, email, password
-      })
+      });
 
-      if(data.error) {
-        toast.error(data.error)
+      if (data.error) {
+        toast.error(data.error);
       } else {
-        setData({})
-        toast.success('Login Successful, Welcome!')
-        navigate('/login')
+        setData({});
+        toast.success('Registration Successful, Welcome!');
+        navigate('/login');
+
+        // Update the user data in the context after a successful registration
+        setUser({ name, email });
       }
-
     } catch (error) {
-
-      console.log(error)
-
+      console.log(error);
     }
-
   }
+
   return (
     <div className="container">
       <div className="form-container">
@@ -57,7 +55,7 @@ const Register = () => {
         </form>
       </div>
     </div>
-  )
+  );
 }
 
-export default Register
+export default Register;

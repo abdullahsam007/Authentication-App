@@ -1,13 +1,13 @@
 
 import './App.css'
 import {Routes, Route} from 'react-router-dom';
-import Navbar from '../src/components/Navbar';
-import Home from '../src/pages/Home';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import axios from 'axios';
 import { Toaster } from 'react-hot-toast'
-import { UserContextProvider } from '../context/userContext'; //here error
+import { UserContextProvider } from 'src/context/userContext'; //here error
 import Dashboard from './pages/Dashboard'
 
 

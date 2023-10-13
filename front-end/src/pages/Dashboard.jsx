@@ -8,7 +8,7 @@ export default function Dashboard() {
     <div>
       <h1>Dashboard</h1>
       {user ? (
-        <h1>Hi {user.name}!</h1>
+        <h1> <strong>Hi,</strong> {user.name}! The best arbisoft developer</h1>
       ) : (
         <p>Loading user data...</p>
       )}

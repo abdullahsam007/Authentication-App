@@ -1,27 +1,26 @@
 
-import './App.css'
-import {Routes, Route} from 'react-router-dom';
+import './App.css';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import axios from 'axios';
-import { Toaster } from 'react-hot-toast'
+import { Toaster } from 'react-hot-toast';
 import { UserContextProvider } from './context/userContext'; 
-import Dashboard from './pages/Dashboard'
-
-
-
+import Dashboard from './pages/Dashboard';
 
 axios.defaults.baseURL = 'http://localhost:8000';
-axios.defaults.withCredentials = true
+axios.defaults.withCredentials = true;
 
 function App() {
-  
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  // Add logic to check the user's authentication status, e.g., by making an API call.
 
   return (
     <UserContextProvider>
-      <Navbar />
+      <Navbar isAuthenticated={isAuthenticated} />
       <Toaster position='bottom-right' toastOptions = {{duration: 2000}} />
       <Routes>
         <Route path='/' element={<Home />} />
@@ -30,7 +29,8 @@ function App() {
         <Route path='/dashboard' element={<Dashboard />} />  
       </Routes>
     </UserContextProvider>
-  )
+  );
 }
 
-export default App
+export default App;
+

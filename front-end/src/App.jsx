@@ -10,6 +10,8 @@ import { Toaster } from 'react-hot-toast';
 import { UserContextProvider } from './context/userContext'; 
 import Dashboard from './pages/Dashboard';
 
+// Important hai bro
+
 axios.defaults.baseURL = 'http://localhost:8000';
 axios.defaults.withCredentials = true;
 
@@ -20,7 +22,7 @@ function App() {
 
   return (
     <UserContextProvider>
-      <Navbar isAuthenticated={isAuthenticated} />
+      
       <Toaster position='bottom-right' toastOptions = {{duration: 2000}} />
       <Routes>
         <Route path='/' element={<Home />} />
@@ -33,4 +35,5 @@ function App() {
 }
 
 export default App;
+
 

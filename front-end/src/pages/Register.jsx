@@ -3,7 +3,7 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from "react-router-dom";
 import { UserContext } from '../context/userContext'; // Update the import path
-
+//important hai
 const Register = () => {
   const navigate = useNavigate();
   const { setUser } = useContext(UserContext); // Use the setUser function from UserContext

@@ -1,5 +1,7 @@
 //to find types of what user enter
 
+//important
+
 const mongoose = require('mongoose')
 const {Schema} = mongoose
 const userSchema = new Schema({

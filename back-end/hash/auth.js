@@ -1,5 +1,7 @@
 const bcrypt = require('bcrypt');
 
+//important
+
 const hashPassword = (password) => {
     return new Promise((resolve, reject) => {
 

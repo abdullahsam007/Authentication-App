@@ -3,6 +3,8 @@ const { hashPassword, comparePasswords } = require('../hash/auth');
 const async = require('hbr/lib/async');
 const jwt = require('jsonwebtoken');
 
+//important
+
 
 const test = (req, res) => {
     res.json('test is working') 

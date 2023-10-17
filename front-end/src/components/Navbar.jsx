@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <nav>
       <div className="nav-container">
-        <Link to='/'>Home</Link>
+        <Link to='/dashboard'>Home</Link>
         <Link to='/register'>Register</Link>
         <Link to='/login'>Login</Link>
 
@@ -18,6 +18,8 @@ const Navbar = () => {
 }
 
 export default Navbar;
+
+
 
 
 

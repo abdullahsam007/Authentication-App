@@ -4,7 +4,7 @@ const cors = require('cors');
 const { test, registerUser, loginUser, getProfile } = require('../controllers/authController')
 
 // middleware hai for CORS
-//important
+//important Hello
 
 router.use(
     cors({

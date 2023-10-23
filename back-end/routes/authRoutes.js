@@ -5,7 +5,7 @@ const { test, registerUser, loginUser, getProfile } = require('../controllers/au
 
 // middleware hai for CORS
 //important
-// Yes
+// Yessok
 
 router.use(
     cors({
